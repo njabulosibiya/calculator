@@ -6,6 +6,7 @@
 	Description:
 	CMake configuration for xamp library compiled as object file
 ]]
+# Global binary name
 set(LIBRARY_BINARY "xamp_library")
 
 list(APPEND CMAKE_MESSAGE_CONTEXT "${LIBRARY_BINARY}")

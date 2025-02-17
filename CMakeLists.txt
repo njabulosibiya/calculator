@@ -1,3 +1,14 @@
+#[[
+    Author:     Njabulo
+
+    Dependencies: 
+        fmt - fast format library
+
+    Summary: 
+        Configuration 
+]]
+
+
 cmake_minimum_required(VERSION 3.16)
 
 #[[
@@ -10,7 +21,7 @@ cmake_minimum_required(VERSION 3.16)
 #]]
 set(CMAKE_MESSAGE_CONTEXT "ROOT")
 
-# Set constant variable for project binary
+# Binary names
 set(BINARY_NAME "Calculator")
 set(UI_BINARY_NAME "ui_calculator")
 set(CONSOLE_BINARY_NAME "console_calculator")
@@ -21,7 +32,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ########### SYSTEM ###########
-message(NOTICE "${CMAKE_HOST_SYSTEM_NAME} ${CMAKE_HOST_SYSTEM_VERSION} system detected")
+message(STATUS "${CMAKE_HOST_SYSTEM_NAME} ${CMAKE_HOST_SYSTEM_VERSION} system detected")
 ########### ########### ###########
 
 ########### PROJECT CONFIGURATION ###########
@@ -42,13 +53,14 @@ if(${PROJECT_BINARY_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR}/BUILD)
     message(FATAL_ERROR "In source build sub-directory not allowed!")
 endif()
 
-message(${CMAKE_CURRENT_BINARY_DIR})
+message(STATUS "Current binary directory: ${CMAKE_CURRENT_BINARY_DIR}")
 ########### END IN-SOURCE BUILDS ###########
 
 add_subdirectory(lib)
 
 ########### EXTERNAL DEPENDECIES ########### 
-find_package(fmt CONFIG REQUIRED)
+# Removed due to configuration buid & generation time 
+# find_package(fmt CONFIG REQUIRED)
 ########### ########### ###########
 
 ########### CREATE TARGET(S)###########
@@ -63,7 +75,7 @@ add_executable(${CONSOLE_BINARY_NAME} "main_console.cpp")
 ########### LINK DEPENDENCIES TO TARGET ###########
 target_include_directories(${CONSOLE_BINARY_NAME} PUBLIC include/)
 
-target_link_libraries(${CONSOLE_BINARY_NAME} PRIVATE fmt::fmt)
+# target_link_libraries(${CONSOLE_BINARY_NAME} PRIVATE fmt::fmt)
 
-target_link_libraries(${CONSOLE_BINARY_NAME} PRIVATE xamp_library)
+target_link_libraries(${CONSOLE_BINARY_NAME} PUBLIC xamp_library)
 ########### ########### ###########

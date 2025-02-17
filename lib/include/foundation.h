@@ -19,38 +19,6 @@
 
 namespace xamp {
 	//Defining number system  
-	class NumberSystem {
-		class Real {
-		public:
-			Real();
-			Real(long double x);
-			static bool isReal(long double x);
-		private:
-			long double m_Real;
-		};
-
-		class Rational : public Real {
-		public:
-			Rational();
-		private:
-			long double m_Rational;
-		};
-		class Irrational : public Real {
-
-		};
-
-		class Integer : public Rational {
-
-		};
-
-		class Whole : public Integer {
-
-		};
-
-		class Natural : public Whole {
-
-		};
-	};
 }
 
 

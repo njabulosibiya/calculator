@@ -8,6 +8,8 @@
  * 
  * Dependencies:	fmt
  * 
+ * Summary:	Main executable of console calculator
+ * 
  * Description:
  *	The main executable of the terminal version of the Calculator application.
  *	
