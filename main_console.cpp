@@ -21,12 +21,16 @@
  *	library), without any UI.
  */
 
-#include <fmt/core.h>
 #include <iostream>
 #include <core.h>
 
 int main() {
-	fmt::print("Hello FMT");
+
+	std::cout << "Prime numbers till: ";
+	unsigned int prime(0);
+	std::cin >> prime;
+
+	theSieveOfEratosthenes(prime);
 
 	return 0;
 }
